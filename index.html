@@ -1,0 +1,480 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Al Mudawwanah</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="progress" id="progress"></div>
+
+  <!-- Header -->
+  <header class="header" id="top">
+    <div class="container nav-wrap">
+      <a class="brand" href="#home" aria-label="Al Mudawwanah Home">
+        <span class="brand-mark">AM</span>
+        <span class="brand-text">Al Mudawwanah</span>
+      </a>
+
+      <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="nav" id="nav">
+        <a href="#home" class="nav-link">Home</a>
+        <a href="#v1" class="nav-link">Mudawwanah Sughra v1</a>
+        <a href="#articles" class="nav-link">Articles</a>
+        <a href="#courses" class="nav-link">Courses</a>
+        <a href="#media" class="nav-link">Videos & Audios</a>
+        <a href="#about" class="nav-link">About</a>
+        <a href="#contact" class="nav-link">Contact Us</a>
+        <a href="#courses" class="btn btn-gold btn-small">Apply</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">Tech • Scholarship • Community</p>
+
+          <h1 class="hero-title">
+            <span class="hero-title-accent">Al Mudawwanah</span><br/>
+            A modern system for classical scholarship.
+          </h1>
+
+          <p class="hero-subtitle">
+            An Ashʿarī-backed program and platform focused on structured learning, curated resources,
+            and a clean modern interface.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-gold" href="#articles">Read Articles</a>
+            <a class="btn btn-ghost" href="#courses">Apply for Courses</a>
+          </div>
+
+          <div class="hero-badges">
+            <span class="badge">Ashʿarī-backed</span>
+            <span class="badge">Research-focused</span>
+            <span class="badge">Modern UI</span>
+          </div>
+        </div>
+
+        <!-- Tech panel -->
+        <!-- Hero Feature Stack (replaces the tech panel) -->
+<div class="hero-panel" aria-hidden="true">
+  <div class="feature-stack">
+    <div class="feature-head">
+      <p class="feature-kicker">SYSTEM MODULES</p>
+      <h3 class="feature-title">Built for structured learning</h3>
+      <p class="feature-subtitle">
+        Articles, course intake, media library, and resources — in one clean platform.
+      </p>
+    </div>
+
+    <div class="feature-grid">
+      <div class="feature-card">
+        <div class="feature-top">
+          <span class="feature-icon">✦</span>
+          <span class="feature-name">Articles</span>
+        </div>
+        <p class="feature-desc">Curated posts with clear structure and consistent terminology.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-top">
+          <span class="feature-icon">✦</span>
+          <span class="feature-name">Courses</span>
+        </div>
+        <p class="feature-desc">Application-based enrollment via Formspree intake workflow.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-top">
+          <span class="feature-icon">✦</span>
+          <span class="feature-name">Videos & Audios</span>
+        </div>
+        <p class="feature-desc">A clean media hub for lessons, series, and audio notes.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-top">
+          <span class="feature-icon">✦</span>
+          <span class="feature-name">Resources</span>
+        </div>
+        <p class="feature-desc">Reading lists, glossaries, and study roadmaps.</p>
+      </div>
+    </div>
+
+    <div class="feature-cta">
+      <a class="btn btn-gold btn-small" href="#courses">Apply Now</a>
+      <a class="btn btn-ghost btn-small" href="#media">Open Media</a>
+    </div>
+  </div>
+</div>
+
+
+            <div class="panel-body">
+              <div class="chip">ARTICLES</div>
+              <div class="chip">COURSES</div>
+              <div class="chip">VIDEOS</div>
+              <div class="chip">AUDIOS</div>
+              <div class="chip">RESOURCES</div>
+              <div class="chip">COMMUNITY</div>
+
+              <div class="code-block">
+                <div class="code-line"><span class="k">curate</span>() → <span class="v">reliable_sources</span></div>
+                <div class="code-line"><span class="k">learn</span>() → <span class="v">structured_path</span></div>
+                <div class="code-line"><span class="k">apply</span>() → <span class="v">course_intake</span></div>
+                <div class="code-line"><span class="k">publish</span>() → <span class="v">clean_output</span></div>
+              </div>
+
+              <div class="panel-glow"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-bg" aria-hidden="true"></div>
+    </section>
+
+    <!-- v1 -->
+    <section class="section" id="v1">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-title">Mudawwanah Sughra v1</h2>
+          <p class="section-subtitle light-subtitle">
+            v1 is the compact baseline: fast navigation, modern layout, and structured knowledge delivery.
+          </p>
+        </div>
+
+        <div class="cards light-cards">
+          <article class="card light-card">
+            <h3>Structured Learning</h3>
+            <p>Clear learning routes with prerequisites, reading lists, and guided progression.</p>
+            <button class="btn btn-gold btn-small toast-btn" data-toast="Learning routes enabled (demo).">Enable</button>
+          </article>
+
+          <article class="card light-card">
+            <h3>Curated Resources</h3>
+            <p>Focus on high-signal materials with scholarly alignment and careful terminology.</p>
+            <button class="btn btn-gold btn-small toast-btn" data-toast="Curated resources activated (demo).">Activate</button>
+          </article>
+
+          <article class="card light-card">
+            <h3>Ashʿarī Alignment</h3>
+            <p>Designed with Ashʿarī-backed oversight to preserve precise framing and avoid distortions.</p>
+            <button class="btn btn-gold btn-small toast-btn" data-toast="Ashʿarī mode applied (demo).">Apply</button>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Articles -->
+    <section class="section section-dark" id="articles">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-title">Articles</h2>
+          <p class="section-subtitle">
+            Essays, notes, and short research pieces — written with clarity and careful sourcing.
+          </p>
+        </div>
+
+        <div class="cards">
+          <article class="card">
+            <h3>Foundations of Sunni Creed</h3>
+            <p>Core concepts, key terms, and common misconceptions — explained in a structured way.</p>
+            <a class="btn btn-gold btn-small" href="#" aria-label="Read article: Foundations of Sunni Creed">Read</a>
+          </article>
+
+          <article class="card">
+            <h3>Glossary: Technical Terms</h3>
+            <p>A living glossary to keep meanings stable across reading, study, and translation work.</p>
+            <a class="btn btn-gold btn-small" href="#" aria-label="Read article: Glossary">Open</a>
+          </article>
+
+          <article class="card">
+            <h3>Method: Reading Classical Texts</h3>
+            <p>How to approach manuscripts, commentaries, and layered scholarship with discipline.</p>
+            <a class="btn btn-gold btn-small" href="#" aria-label="Read article: Method">Read</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Courses (Formspree) -->
+    <div class="courses-grid">
+  <div class="courses-info">
+    <div class="course-list">
+      <div class="course-item">
+        <div class="course-top">
+          <span class="course-name">ʿAqīdah Course</span>
+        </div>
+        <p class="course-desc">
+          Foundations of Sunni creed according to Ahl al-Sunnah wa-l-Jamāʿah, with Ashʿarī grounding and
+          structured study.
+        </p>
+      </div>
+
+      <div class="course-item">
+        <div class="course-top">
+          <span class="course-name">Fiqh Course</span>
+        </div>
+        <p class="course-desc">
+          Systematic study of Islamic jurisprudence with attention to evidences, terminology,
+          and scholarly method.
+        </p>
+      </div>
+
+      <div class="course-item">
+        <div class="course-top">
+          <span class="course-name">Madhhab-Based Fiqh</span>
+        </div>
+        <p class="course-desc">
+          Focused fiqh study within a specific madhhab, chosen by the student during application.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <form
+    class="form light-form"
+    id="courseForm"
+    action="https://formspree.io/f/xqezygjy"
+    method="POST"
+  >
+    <h3 class="form-title">Course Application</h3>
+
+    <label>
+      <span>Full Name</span>
+      <input type="text" name="name" placeholder="Your name" required />
+    </label>
+
+    <label>
+      <span>Email</span>
+      <input type="email" name="email" placeholder="you@example.com" required />
+    </label>
+
+    <div class="choice-row">
+      <div class="choice">
+        <input type="checkbox" id="wantFiqh" name="want_fiqh" value="Yes">
+        <label for="wantFiqh">I want to study Fiqh</label>
+      </div>
+
+      <div class="choice">
+        <input type="checkbox" id="wantAqeedah" name="want_aqeedah" value="Yes">
+        <label for="wantAqeedah">I want to study ʿAqīdah</label>
+      </div>
+    </div>
+
+    <div class="conditional" id="fiqhBlock" hidden>
+      <label>
+        <span>Madhhab (Fiqh)</span>
+        <select name="madhhab" id="madhhabSelect">
+          <option value="" disabled selected>Select your madhhab</option>
+          <option value="Hanafi">Ḥanafī</option>
+          <option value="Maliki">Mālikī</option>
+          <option value="Shafii">Shāfiʿī</option>
+          <option value="Hanbali">Ḥanbalī</option>
+        </select>
+      </label>
+    </div>
+
+    <div class="conditional" id="aqeedahBlock" hidden>
+      <label>
+        <span>Creed (ʿAqīdah)</span>
+        <select name="creed" id="creedSelect">
+          <option value="" disabled selected>Select creed</option>
+          <option value="Ashari">Ashʿarī</option>
+          <option value="Maturidi">Māturīdī</option>
+        </select>
+      </label>
+    </div>
+
+    <label>
+      <span>Madhhab / ʿAqīdah Details</span>
+      <textarea
+        name="study_details"
+        rows="4"
+        placeholder="Please specify which madhhab (for fiqh) and/or which ʿaqīdah (Ashʿarī or Māturīdī) you wish to study."
+        required
+      ></textarea>
+    </label>
+
+    <input type="hidden" name="source" value="Al Mudawwanah Website - Courses" />
+
+    <button class="btn btn-gold" type="submit">Submit Application</button>
+    <p class="form-note" id="courseNote" role="status" aria-live="polite"></p>
+  </form>
+</div>
+
+
+
+
+          <!-- Optional hidden metadata -->
+          <input type="hidden" name="source" value="Al Mudawwanah Website - Courses" />
+
+        
+    
+<input type="hidden" name="_subject" value="New Course Application — Madhhab & ʿAqīdah Selection" />
+
+    <!-- Media -->
+    <section id="videos" class="section section-dark">
+  <div class="container">
+    <div class="dark-box videos-box">
+      <h2 class="section-title light">Videos & Audios</h2>
+      <p class="coming-soon light">
+        We will be soon uploading.
+      </p>
+    </div>
+  </div>
+</section>
+
+
+    <!-- About -->
+    <section class="section" id="about">
+  <div class="container about-grid">
+
+    <!-- About / Mission -->
+    <div class="about-card solid">
+      <h2 class="section-title">About</h2>
+
+      <div class="arabic-line" dir="rtl" lang="ar">
+        بسم الله الرحمن الرحيم
+      </div>
+
+      <h3 class="about-h3">Mission Statement</h3>
+
+      <p class="about-subtitle">
+        Al-Mudawwana Institute is a Sunni initiative devoted to preserving and reviving authentic sacred
+        knowledge upon the way of Ahl al-Sunnah wa-l-Jamāʿah, through sound methodology and qualified guidance.
+        Our aim is to reawaken the spirit of learning and daʿwah, and to build a generation grounded in correct
+        belief, sincere practice, and service to the Ummah.
+      </p>
+
+      <p class="about-subtitle">
+        In less than two months, Allah has gathered around us nearly 260 brothers, and many projects are already
+        underway. Among them are initiatives to strengthen and expand the daʿwah, support Sunni brothers and sisters
+        in need across the world, and the development of an AI system capable of translating classical books—both
+        printed works and manuscripts—in bulk, to make sacred knowledge more accessible.
+      </p>
+
+      <p class="about-subtitle">
+        Central to our mission is establishing a strong and living connection with the Mashāyikh of the East—may Allah
+        preserve them. We seek their knowledge, guidance, and maʿiyyah, so that our efforts remain sincere, balanced,
+        and firmly rooted in the scholarly tradition.
+      </p>
+
+      <div class="arabic-line" dir="rtl" lang="ar">
+        وصلى الله وسلم على سيدنا محمد وعلى آله وصحبه أجمعين
+      </div>
+
+      <div class="signature">— Muḥyidīn al-Ṣūmālī</div>
+
+      
+
+      <!-- Socials -->
+      <div class="socials">
+  <h3 class="about-h3">Social Media</h3>
+
+  <div class="social-grid">
+    <a class="social-card" href="https://x.com/al_mudawwana?s=21" target="_blank" rel="noreferrer">
+      <span class="social-icon">X</span>
+      <span class="social-text">
+        <span class="social-name">X</span>
+        <span class="social-handle">@al_mudawwana</span>
+      </span>
+    </a>
+
+    <a class="social-card" href="https://www.facebook.com/share/14R4w9HDjoH/?mibextid=wwXIfr" target="_blank" rel="noreferrer">
+      <span class="social-icon">FB</span>
+      <span class="social-text">
+        <span class="social-name">Facebook</span>
+        <span class="social-handle">Al Mudawwana</span>
+      </span>
+    </a>
+
+    <a class="social-card" href="https://www.instagram.com/almudawwana?igsh=Y2tpMGZ6d3Vvc2l1" target="_blank" rel="noreferrer">
+      <span class="social-icon">IG</span>
+      <span class="social-text">
+        <span class="social-name">Instagram</span>
+        <span class="social-handle">@almudawwana</span>
+      </span>
+    </a>
+
+    <a class="social-card" href="https://www.tiktok.com/@al.mudawwana?_r=1&_t=ZT-92RAVBxxiYJ" target="_blank" rel="noreferrer">
+      <span class="social-icon">TT</span>
+      <span class="social-text">
+        <span class="social-name">TikTok</span>
+        <span class="social-handle">@al.mudawwana</span>
+      </span>
+    </a>
+  </div>
+</div>
+
+
+    <!-- Right side metrics box (keep) -->
+    <div class="about-side" aria-hidden="true">
+      <div class="metric">
+        <span class="metric-k">Platform</span>
+        <span class="metric-v">Modern</span>
+      </div>
+      <div class="metric">
+        <span class="metric-k">Focus</span>
+        <span class="metric-v">Scholarship</span>
+      </div>
+      <div class="metric">
+        <span class="metric-k">Alignment</span>
+        <span class="metric-v">Ashʿarī</span>
+      </div>
+      <div class="grid-lines"></div>
+    </div>
+
+  </div>
+</section>
+
+
+    <section class="section" id="contact">
+  <div class="container contact-center">
+
+    <div class="contact-card">
+      <h2 class="section-title">Contact Us</h2>
+      <p class="contact-subtitle">
+        Reach out for questions, partnerships, or general inquiries.
+      </p>
+
+      <form class="contact-form" id="contactForm">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input id="name" type="text" name="name" placeholder="Your name" required />
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input id="email" type="email" name="email" placeholder="you@example.com" required />
+        </div>
+
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea
+            id="message"
+            name="message"
+            rows="5"
+            placeholder="Write your message..."
+            required
+          ></textarea>
+        </div>
+
+        <button class="btn btn-gold contact-btn" type="submit">
+          Send Message
+        </button>
+
+        <p class="form-note" id="formNote" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+
+  </div>
+</section>
