@@ -97,3 +97,37 @@ document.querySelectorAll(".audio-btn").forEach(btn => {
 document.getElementById("playAllBtn")?.addEventListener("click", () => {
   showToast("Tip: Add MP3 links to the <audio> tags, then play from buttons.");
 });
+// Mobile nav toggle
+const navToggle = document.querySelector(".nav-toggle");
+const siteNav = document.getElementById("siteNav");
+
+function closeNav(){
+  if (!siteNav || !navToggle) return;
+  siteNav.classList.remove("open");
+  navToggle.setAttribute("aria-expanded", "false");
+}
+
+function toggleNav(){
+  if (!siteNav || !navToggle) return;
+  const isOpen = siteNav.classList.toggle("open");
+  navToggle.setAttribute("aria-expanded", String(isOpen));
+}
+
+navToggle?.addEventListener("click", toggleNav);
+
+// Close menu when a link is clicked
+siteNav?.querySelectorAll("a").forEach(a => {
+  a.addEventListener("click", closeNav);
+});
+
+// Close on Escape
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") closeNav();
+});
+
+// Close when clicking outside
+document.addEventListener("click", (e) => {
+  if (!siteNav || !navToggle) return;
+  const clickedInside = siteNav.contains(e.target) || navToggle.contains(e.target);
+  if (!clickedInside) closeNav();
+});

@@ -10,29 +10,27 @@
   <div class="progress" id="progress"></div>
 
   <!-- Header -->
-  <header class="header" id="top">
-    <div class="container nav-wrap">
-      <a class="brand" href="#home" aria-label="Al Mudawwanah Home">
-        <span class="brand-mark">AM</span>
-        <span class="brand-text">Al Mudawwanah</span>
-      </a>
+ <header class="site-header">
+  <div class="container nav-wrap">
+    <a class="brand" href="#home">Al Mudawwanah</a>
 
-      <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
+    <!-- Hamburger -->
+    <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="siteNav">
+      <span></span><span></span><span></span>
+    </button>
 
-      <nav class="nav" id="nav">
-        <a href="#home" class="nav-link">Home</a>
-        <a href="#v1" class="nav-link">Mudawwanah Sughra v1</a>
-        <a href="#articles" class="nav-link">Articles</a>
-        <a href="#courses" class="nav-link">Courses</a>
-        <a href="#media" class="nav-link">Videos & Audios</a>
-        <a href="#about" class="nav-link">About</a>
-        <a href="#contact" class="nav-link">Contact Us</a>
-        <a href="#courses" class="btn btn-gold btn-small">Apply</a>
-      </nav>
-    </div>
-  </header>
+    <!-- Links -->
+    <nav class="nav" id="siteNav">
+      <a href="#home" class="nav-link">Home</a>
+      <a href="#sughra" class="nav-link">Mudawwanah Sughra v1</a>
+      <a href="#about" class="nav-link">About</a>
+      <a href="#articles" class="nav-link">Articles</a>
+      <a href="#courses" class="nav-link">Courses</a>
+      <a href="#videos" class="nav-link">Videos & Audios</a>
+      <a href="#contact" class="nav-link">Contact Us</a>
+    </nav>
+  </div>
+</header>
 
   <main>
     <!-- Hero -->
@@ -174,9 +172,9 @@
     </section>
 
     <!-- Articles -->
- <section id="articles" class="section section-dark">
+   <section id="articles" class="section">
   <div class="container">
-    <div class="dark-box">
+    <div class="dark-box articles-box">
       <h2 class="section-title light">Articles</h2>
       <p class="coming-soon light">
         We will be posting articles soon.
@@ -459,5 +457,3 @@
 
   </div>
 </section>
-
-
