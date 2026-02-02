@@ -539,3 +539,75 @@ input:focus, select:focus, textarea:focus{
     background: rgba(212,175,55,0.14);
   }
 }
+.nav-sep{
+  color: rgba(0,0,0,0.35);
+  font-weight: 900;
+  margin: 0 2px;
+}
+
+.nav-link.active{
+  color: rgba(0,0,0,0.95);
+  text-decoration: underline;
+  text-underline-offset: 6px;
+}
+@media (max-width: 900px){
+  .nav-sep{ display:none; }
+  .nav-link.active{
+    text-decoration: none;
+    background: rgba(212,175,55,0.14);
+  }
+}
+/* Two forms side-by-side (Courses page) */
+.forms-grid{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  align-items: start;
+}
+
+/* Make both forms equal height + clean header row */
+.form-head-row{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.pill{
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(0,0,0,0.10);
+  background: rgba(0,0,0,0.03);
+  font-weight: 900;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.form-subtext{
+  margin: 0 0 10px;
+  color: rgba(0,0,0,0.65);
+  line-height: 1.6;
+  font-weight: 650;
+}
+
+.btn-full{
+  width: 100%;
+  justify-content: center;
+}
+
+/* If you want the checkbox row tighter */
+.choice-row{
+  margin-top: 10px;
+}
+
+/* Responsive: stack on mobile */
+@media (max-width: 980px){
+  .forms-grid{
+    grid-template-columns: 1fr;
+  }
+}
+
+

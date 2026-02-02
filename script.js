@@ -1,4 +1,4 @@
-// Mobile nav toggle
+// Mobile nav toggle (works on all pages)
 const navToggle = document.querySelector(".nav-toggle");
 const siteNav = document.getElementById("siteNav");
 
@@ -19,17 +19,14 @@ navToggle?.addEventListener("click", (e) => {
   toggleNav();
 });
 
-// Close menu when a link is clicked
 siteNav?.querySelectorAll("a").forEach(a => {
   a.addEventListener("click", closeNav);
 });
 
-// Close on Escape
 document.addEventListener("keydown", (e) => {
   if (e.key === "Escape") closeNav();
 });
 
-// Close when clicking outside
 document.addEventListener("click", (e) => {
   if (!siteNav || !navToggle) return;
   const clickedInside = siteNav.contains(e.target) || navToggle.contains(e.target);
@@ -37,7 +34,7 @@ document.addEventListener("click", (e) => {
 });
 
 
-// Courses: independent Fiqh / Aqeedah choices
+// Courses logic (only runs on courses.html because elements exist there)
 const courseFormEl = document.getElementById("courseForm");
 const wantFiqh = document.getElementById("wantFiqh");
 const wantAqeedah = document.getElementById("wantAqeedah");
@@ -72,7 +69,6 @@ wantFiqh?.addEventListener("change", updateCourseChoices);
 wantAqeedah?.addEventListener("change", updateCourseChoices);
 updateCourseChoices();
 
-// Prevent submitting if neither is selected
 courseFormEl?.addEventListener("submit", (e) => {
   const fiqh = !!wantFiqh?.checked;
   const aqeedah = !!wantAqeedah?.checked;
@@ -82,10 +78,17 @@ courseFormEl?.addEventListener("submit", (e) => {
   }
 });
 
-// Contact demo feedback (optional)
+
+// Contact demo feedback (only on index.html where contactForm exists)
 const contactForm = document.getElementById("contactForm");
 const formNote = document.getElementById("formNote");
 contactForm?.addEventListener("submit", (e) => {
   e.preventDefault();
-  if (formNote) formNote.textContent = "Message received (demo). Connect this form to Formspree if you want it to send.";
+  if (formNote) formNote.textContent = "Message received (demo). Add Formspree to send emails.";
+});
+const hanafiForm = document.getElementById("hanafiRamadanForm");
+const hanafiNote = document.getElementById("hanafiNote");
+
+hanafiForm?.addEventListener("submit", () => {
+  if (hanafiNote) hanafiNote.textContent = "Submitting…";
 });
