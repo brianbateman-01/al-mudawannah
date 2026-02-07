@@ -3,74 +3,261 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Articles • Al Mudawwanah</title>
-  <link rel="stylesheet" href="../styles.css" />
+  <title>Al Mudawwanah</title>
+<link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png">
+<link rel="apple-touch-icon" href="./apple-touch-icon.png">
+<link rel="manifest" href="./site.webmanifest">
+
+
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
 <header class="site-header">
   <div class="container nav-wrap">
-    <a class="brand" href="../index.html">
-      <img src="../IMG_8413-removebg-preview.png" alt="Al Mudawwanah" class="brand-logo">
+    <a class="brand" href="index.html">
+      <img src="./logo.png" alt="Al Mudawwanah" class="brand-logo">
       <span class="brand-text">Al Mudawwanah</span>
     </a>
 
-    <button class="nav-toggle" type="button" aria-label="Open menu">
+    <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="siteNav">
       <span></span><span></span><span></span>
     </button>
 
     <nav class="nav" id="siteNav">
-      <a href="../index.html#home" class="nav-link">Home</a>
-      <a href="../index.html#about" class="nav-link">About</a>
-      <a href="./index.html" class="nav-link active">Articles</a>
-      <a href="../courses.html" class="nav-link">Courses</a>
-      <a href="../media.html" class="nav-link">Videos & Audios</a>
-      
-      <a href="../index.html#contact" class="nav-link">Contact Us</a>
+      <a class="active" href="index.html">Home</a>
+      <a href="articles/">Articles</a>
+      <a href="courses.html">Courses</a>
+      <a href="media.html">Videos & Audios</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact Us</a>
     </nav>
   </div>
 </header>
 
 <main>
-  <section class="page-hero">
-    <div class="container">
-      <h1 class="page-title">Articles</h1>
-      <p class="page-subtitle">Browse categories and collections.</p>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="container hero-grid">
+      <div>
+        <p class="kicker">TECH • SCHOLARSHIP • COMMUNITY</p>
+        <h1>Al Mudawwanah</h1>
+        <p>
+          An Ashʿarī-backed platform for structured learning, curated resources, and clean modern delivery of classical scholarship.
+        </p>
+        <div class="hero-actions">
+  <a class="btn btn-gold" href="courses.html">Apply for Courses</a>
+  <a class="btn btn-ghost" href="articles/">Read Articles</a>
+</div>
+
+      </div>
+
+      <div class="panel feature-panel">
+  <div class="pad">
+    <p class="kicker" style="margin-bottom:6px;">WHAT WE OFFER</p>
+
+    <div class="feature-grid">
+      <div class="fcard">
+        <div class="frow">
+          <span class="ficon">✦</span>
+          <span class="fname">Articles & Research</span>
+        </div>
+        <p class="fdesc">
+          Carefully written articles, refutations, and research grounded in Sunni scholarship.
+        </p>
+      </div>
+
+      <div class="fcard">
+        <div class="frow">
+          <span class="ficon">✦</span>
+          <span class="fname">Courses & Classes</span>
+        </div>
+        <p class="fdesc">
+          Structured courses taught by qualified teachers, with clear schedules and expectations.
+        </p>
+      </div>
+
+      <div class="fcard">
+        <div class="frow">
+          <span class="ficon">✦</span>
+          <span class="fname">Videos & Audios</span>
+        </div>
+        <p class="fdesc">
+          Lectures, lessons, and recordings made available in a clean and accessible format.
+        </p>
+      </div>
+
+      <div class="fcard">
+        <div class="frow">
+          <span class="ficon">✦</span>
+          <span class="fname">Teaching & Guidance</span>
+        </div>
+        <p class="fdesc">
+          Direct learning and guidance rooted in the way of Ahl al-Sunnah wa-l-Jamāʿah.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
     </div>
   </section>
 
-  <section class="section">
+  <!-- ABOUT -->
+  <section class="section" id="about">
     <div class="container">
-      <div class="refutations-grid">
-        <!-- Card that routes INTO refutations (child) -->
-        <a class="ref-card" href="./refutations.html">
-          <h3>Refutations</h3>
-          <p>Responses and clarifications grounded in Ahl al-Sunnah wa-l-Jamāʿah.</p>
-          <span class="tag">Open</span>
-        </a>
+      <div class="section-head">
+        <h2 class="h2">About</h2>
+        <p class="sub">Mission, methodology, and social platforms.</p>
+      </div>
 
-        <div class="ref-card" aria-disabled="true">
-          <h3>Coming Soon</h3>
-          <p>More article collections will be added here.</p>
-          <span class="tag">Soon</span>
-        </div>
+      <div class="grid-2">
+        <article class="panel pad">
+          <div class="arabic-right" dir="rtl" lang="ar">بسم الله الرحمن الرحيم</div>
+          <h3 class="panel-title">Mission Statement</h3>
 
-        <div class="ref-card" aria-disabled="true">
-          <h3>Coming Soon</h3>
-          <p>More article collections will be added here.</p>
-          <span class="tag">Soon</span>
-        </div>
+          <div class="prose">
+            <p>
+              Al-Mudawwana Institute is a Sunni initiative devoted to preserving and reviving authentic sacred
+              knowledge upon the way of Ahl al-Sunnah wa-l-Jamāʿah, through sound methodology and qualified guidance.
+              Our aim is to reawaken the spirit of learning and daʿwah, and to build a generation grounded in correct
+              belief, sincere practice, and service to the Ummah.
+            </p>
+
+            <p>
+              In less than two months, Allah has gathered around us nearly 260 brothers, and many projects are already
+              underway. Among them are initiatives to strengthen and expand the daʿwah, support Sunni brothers and sisters
+              in need across the world, and the development of an AI system capable of translating classical books—both
+              printed works and manuscripts—in bulk, to make sacred knowledge more accessible.
+            </p>
+
+            <p>
+              Central to our mission is establishing a strong and living connection with the Mashāyikh of the East—may Allah
+              preserve them. We seek their knowledge, guidance, and maʿiyyah, so that our efforts remain sincere, balanced,
+              and firmly rooted in the scholarly tradition.
+            </p>
+          </div>
+
+          <div class="arabic-center" dir="rtl" lang="ar">وصلى الله وسلم على سيدنا محمد وعلى آله وصحبه أجمعين</div>
+          <div class="signature">— Muḥyidīn al-Ṣūmālī</div>
+        </article>
+
+        <aside class="panel pad">
+          <h3 class="panel-title">Social Media</h3>
+          <div class="social-grid">
+            <a class="social-card" href="https://x.com/al_mudawwana?s=21" target="_blank" rel="noreferrer">
+              <span class="social-badge">X</span>
+              <span class="social-text"><span class="social-name">X</span><span class="social-handle">@al_mudawwana</span></span>
+            </a>
+
+            <a class="social-card" href="https://www.facebook.com/share/14R4w9HDjoH/?mibextid=wwXIfr" target="_blank" rel="noreferrer">
+              <span class="social-badge">FB</span>
+              <span class="social-text"><span class="social-name">Facebook</span><span class="social-handle">Al Mudawwana</span></span>
+            </a>
+
+            <a class="social-card" href="https://www.instagram.com/almudawwana?igsh=Y2tpMGZ6d3Vvc2l1" target="_blank" rel="noreferrer">
+              <span class="social-badge">IG</span>
+              <span class="social-text"><span class="social-name">Instagram</span><span class="social-handle">@almudawwana</span></span>
+            </a>
+
+            <a class="social-card" href="https://www.tiktok.com/@al.mudawwana?_r=1&_t=ZT-92RAVBxxiYJ" target="_blank" rel="noreferrer">
+              <span class="social-badge">TT</span>
+              <span class="social-text"><span class="social-name">TikTok</span><span class="social-handle">@al.mudawwana</span></span>
+            </a>
+          </div>
+        </aside>
       </div>
     </div>
   </section>
+
+  <!-- TEACHERS -->
+  <section class="section" id="teachers">
+    <div class="container">
+      <div class="section-head">
+        <h2 class="h2">Meet Our Teachers</h2>
+        <p class="sub">Learn from experienced educators and scholars.</p>
+      </div>
+
+      <div class="teachers-wrap">
+        <button class="nav-round" id="teacherPrev" type="button" aria-label="Previous">‹</button>
+
+        <article class="panel teacher-card">
+          <div class="pad" id="teacherCard" aria-live="polite">
+            <div class="teacher-top">
+              <div class="teacher-avatar" aria-hidden="true"><span id="teacherInitials">AM</span></div>
+              <div>
+                <h3 class="teacher-name" id="teacherName">Shaykh Minhaji</h3>
+                <p class="teacher-role" id="teacherRole">Teacher</p>
+              </div>
+            </div>
+
+            <p class="teacher-bio" id="teacherBio">Bio coming soon.</p>
+
+            <div class="tags" id="teacherTags"></div>
+            <div class="dots" id="teacherDots"></div>
+          </div>
+        </article>
+
+        <button class="nav-round" id="teacherNext" type="button" aria-label="Next">›</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section" id="contact">
+  <div class="container">
+    <div class="section-head">
+      <h2 class="h2">Contact Us</h2>
+      <p class="sub">Reach out for questions, partnerships, or general inquiries.</p>
+    </div>
+
+    <div class="panel pad" style="max-width:760px;margin:0 auto;">
+      <form
+        id="contactForm"
+        action="https://formspree.io/f/xaqwpvew"
+        method="POST"
+      >
+        <div class="field">
+          <span>Name</span>
+          <input type="text" name="name" placeholder="Your name" required>
+        </div>
+
+        <div class="field">
+          <span>Email</span>
+          <input type="email" name="email" placeholder="you@example.com" required>
+        </div>
+
+        <div class="field">
+          <span>Message</span>
+          <textarea name="message" placeholder="Write your message..." required></textarea>
+        </div>
+
+        <!-- Optional but recommended -->
+        <input type="hidden" name="_subject" value="New Contact Message — Al Mudawwanah">
+        <input type="hidden" name="_template" value="table">
+
+        <button class="btn btn-gold" type="submit">Send Message</button>
+        <p class="form-note" id="formNote" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+      </div>
+    </div>
+  </section>
+
 </main>
 
 <footer class="site-footer">
-  <div class="container">
-    <p>All rights reserved. Mudawwanah Systems LLC.</p>
+  <div class="container footer-inner">
+    All rights reserved. Mudawwanah Systems LLC.
   </div>
 </footer>
 
-<script src="../script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
