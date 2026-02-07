@@ -1,159 +1,136 @@
-/* =========================
-   Helpers
-========================= */
-function $(sel, root = document) {
-  return root.querySelector(sel);
-}
-function $all(sel, root = document) {
-  return Array.from(root.querySelectorAll(sel));
-}
-function setText(el, text) {
-  if (el) el.textContent = text;
-}
-function setRequired(el, required) {
-  if (!el) return;
-  if (required) el.setAttribute("required", "required");
-  else el.removeAttribute("required");
-}
+/* helpers */
+const $ = (s, r=document) => r.querySelector(s);
+const $$ = (s, r=document) => Array.from(r.querySelectorAll(s));
 
-/* =========================
-   Mobile Nav
-========================= */
-(function initMobileNav() {
+/* ===== Mobile Nav (works on every page) ===== */
+(function(){
   const toggle = $(".nav-toggle");
   const nav = $("#siteNav");
+  if(!toggle || !nav) return;
 
-  if (!toggle || !nav) return;
+  const open = () => { nav.classList.add("open"); toggle.setAttribute("aria-expanded","true"); };
+  const close= () => { nav.classList.remove("open"); toggle.setAttribute("aria-expanded","false"); };
 
-  function openNav() {
-    nav.classList.add("open");
-    toggle.setAttribute("aria-expanded", "true");
-    document.body.classList.add("nav-open");
-  }
-
-  function closeNav() {
-    nav.classList.remove("open");
-    toggle.setAttribute("aria-expanded", "false");
-    document.body.classList.remove("nav-open");
-  }
-
-  function toggleNav() {
-    const isOpen = nav.classList.contains("open");
-    if (isOpen) closeNav();
-    else openNav();
-  }
-
-  // Toggle button
-  toggle.addEventListener("click", (e) => {
+  toggle.addEventListener("click",(e)=>{
     e.preventDefault();
     e.stopPropagation();
-    toggleNav();
+    nav.classList.contains("open") ? close() : open();
   });
 
-  // Close when a link is clicked
-  $all("a", nav).forEach((link) => {
-    link.addEventListener("click", () => closeNav());
+  $$("a", nav).forEach(a => a.addEventListener("click", close));
+
+  document.addEventListener("click",(e)=>{
+    if(!nav.classList.contains("open")) return;
+    const inside = nav.contains(e.target) || toggle.contains(e.target);
+    if(!inside) close();
   });
 
-  // Close when clicking outside
-  document.addEventListener("click", (e) => {
-    const clickedInside = nav.contains(e.target) || toggle.contains(e.target);
-    if (!clickedInside) closeNav();
+  document.addEventListener("keydown",(e)=>{
+    if(e.key === "Escape") close();
   });
 
-  // Close on escape
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") closeNav();
-  });
-
-  // Safety: if resizing to desktop, ensure nav resets
-  window.addEventListener("resize", () => {
-    if (window.innerWidth > 900) closeNav();
+  window.addEventListener("resize", ()=>{
+    if(window.innerWidth > 980) close();
   });
 })();
 
-/* =========================
-   Courses: General Form Logic
-   (Fiqh / Aqeedah checkboxes)
-========================= */
-(function initGeneralCourseForm() {
-  const form = $("#courseForm");
-  if (!form) return; // only on courses.html
+/* ===== Teachers Slider (only on index.html) ===== */
+(function(){
+  const card = $("#teacherCard");
+  if(!card) return;
 
-  const wantFiqh = $("#wantFiqh");
-  const wantAqeedah = $("#wantAqeedah");
+  const nameEl = $("#teacherName");
+  const roleEl = $("#teacherRole");
+  const bioEl  = $("#teacherBio");
+  const tagsEl = $("#teacherTags");
+  const initialsEl = $("#teacherInitials");
+  const dotsWrap = $("#teacherDots");
+  const prevBtn = $("#teacherPrev");
+  const nextBtn = $("#teacherNext");
 
-  const fiqhBlock = $("#fiqhBlock");
-  const aqeedahBlock = $("#aqeedahBlock");
+  const teachers = [
+    { name:"Shaykh Minhaji", role:"Teacher", bio:"Bio coming soon.", tags:["Teacher","Scholarship"] },
+    { name:"Shaykh Harun Kanj", role:"Teacher", bio:"Bio coming soon.", tags:["Teacher","Fiqh"] },
+    { name:"Shaykh Muhammad al-Masri", role:"Teacher", bio:"Bio coming soon.", tags:["Teacher","Study"] },
+    { name:"Shaykh Muhammad al-Azhari", role:"Teacher", bio:"Bio coming soon.", tags:["Teacher","ʿAqīdah"] },
+    { name:"Shaykh Shams Tameez", role:"Teacher", bio:"Bio coming soon.", tags:["Teacher","Arabic"] },
+    { name:"Shaykh Abdullah Shuuke", role:"Teacher", bio:"Bio coming soon.", tags:["Teacher","Fiqh/ʿAqīdah"] },
+    { name:"Imam Sudagar", role:"Imam", bio:"Bio coming soon.", tags:["Imam","Community"] },
+  ];
 
-  const madhhabSelect = $("#madhhabSelect");
-  const creedSelect = $("#creedSelect");
+  let i = 0;
 
-  const note = $("#courseNote");
+  const initials = (n)=>{
+    const parts = n.trim().split(/\s+/);
+    const a = parts[0]?.[0] || "A";
+    const b = parts[1]?.[0] || "M";
+    return (a+b).toUpperCase();
+  };
 
-  function updateVisibility() {
-    const fiqh = !!wantFiqh?.checked;
-    const aqeedah = !!wantAqeedah?.checked;
-
-    if (fiqhBlock) fiqhBlock.hidden = !fiqh;
-    if (aqeedahBlock) aqeedahBlock.hidden = !aqeedah;
-
-    setRequired(madhhabSelect, fiqh);
-    setRequired(creedSelect, aqeedah);
-
-    // Reset dropdown if hidden
-    if (!fiqh && madhhabSelect) madhhabSelect.selectedIndex = 0;
-    if (!aqeedah && creedSelect) creedSelect.selectedIndex = 0;
+  function renderDots(){
+    dotsWrap.innerHTML = "";
+    teachers.forEach((_, idx)=>{
+      const b = document.createElement("button");
+      b.type = "button";
+      b.className = "dot" + (idx===i ? " active" : "");
+      b.addEventListener("click", ()=> go(idx));
+      dotsWrap.appendChild(b);
+    });
   }
 
-  wantFiqh?.addEventListener("change", updateVisibility);
-  wantAqeedah?.addEventListener("change", updateVisibility);
-  updateVisibility();
+  function setContent(){
+    const t = teachers[i];
+    nameEl.textContent = t.name;
+    roleEl.textContent = t.role;
+    bioEl.textContent  = t.bio;
+    initialsEl.textContent = initials(t.name);
 
-  // Require at least one checkbox before submitting
-  form.addEventListener("submit", (e) => {
-    const fiqh = !!wantFiqh?.checked;
-    const aqeedah = !!wantAqeedah?.checked;
+    tagsEl.innerHTML = "";
+    t.tags.forEach(tag=>{
+      const s = document.createElement("span");
+      s.className = "tag";
+      s.textContent = tag;
+      tagsEl.appendChild(s);
+    });
 
-    if (!fiqh && !aqeedah) {
-      e.preventDefault();
-      alert("Please select at least one: Fiqh or ʿAqīdah.");
-      return;
-    }
+    renderDots();
+  }
 
-    setText(note, "Submitting…");
+  function go(idx){
+    i = idx;
+    card.animate(
+      [{opacity:1, transform:"translateY(0)"},{opacity:0, transform:"translateY(6px)"}],
+      {duration:140, easing:"ease-out"}
+    ).onfinish = ()=>{
+      setContent();
+      card.animate(
+        [{opacity:0, transform:"translateY(6px)"},{opacity:1, transform:"translateY(0)"}],
+        {duration:160, easing:"ease-out"}
+      );
+    };
+  }
+
+  const prev = ()=> go((i - 1 + teachers.length) % teachers.length);
+  const next = ()=> go((i + 1) % teachers.length);
+
+  prevBtn?.addEventListener("click", prev);
+  nextBtn?.addEventListener("click", next);
+
+  document.addEventListener("keydown",(e)=>{
+    if(e.key==="ArrowLeft") prev();
+    if(e.key==="ArrowRight") next();
   });
+
+  setContent();
 })();
 
-/* =========================
-   Courses: Hanafi Ramadan Form
-========================= */
-(function initHanafiRamadanForm() {
+
+/* ===== Courses form note (Formspree) ===== */
+(function(){
   const form = $("#hanafiRamadanForm");
-  if (!form) return;
-
+  if(!form) return;
   const note = $("#hanafiNote");
-
-  form.addEventListener("submit", () => {
-    setText(note, "Submitting…");
-  });
-})();
-
-/* =========================
-   Contact Form (index.html demo)
-   - prevents ugly reload
-   - shows message
-   - replace with Formspree later
-========================= */
-(function initContactForm() {
-  const form = $("#contactForm");
-  if (!form) return;
-
-  const note = $("#formNote");
-
-  form.addEventListener("submit", (e) => {
-    e.preventDefault();
-    setText(note, "Message received (demo). Add Formspree to send emails.");
-    form.reset();
+  form.addEventListener("submit", ()=>{
+    if(note) note.textContent = "Submitting…";
   });
 })();

@@ -4,35 +4,48 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Videos & Audios • Al Mudawwanah</title>
+<link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png">
+<link rel="apple-touch-icon" href="./apple-touch-icon.png">
+<link rel="manifest" href="./site.webmanifest">
+
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
 <header class="site-header">
   <div class="container nav-wrap">
-    <a class="brand" href="index.html#home">Al Mudawwanah</a>
+    <a class="brand" href="index.html">
+     <img src="./IMG_8413-removebg-preview.png " alt="Al Mudawwanah" class="brand-logo">
+    </a>
+
     <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="siteNav">
       <span></span><span></span><span></span>
     </button>
+
     <nav class="nav" id="siteNav">
-      <a href="index.html#home" class="nav-link">Home</a>
-      <a href="index.html#about" class="nav-link">About</a>
-      <a href="index.html#contact" class="nav-link">Contact Us</a>
-      <span class="nav-sep">•</span>
-      <a href="v1.html" class="nav-link">Mudawwanah Sughra v1</a>
-      <a href="articles.html" class="nav-link">Articles</a>
-      <a href="courses.html" class="nav-link">Courses</a>
-      <a href="media.html" class="nav-link active">Videos & Audios</a>
+      <a href="index.html">Home</a>
+      
+      <a href="articles/index.html">Articles</a>
+      <a href="courses.html">Courses</a>
+      <a class="active" href="media.html">Videos & Audios</a>
+      <a href="index.html#about">About</a>
+      <a href="index.html#contact">Contact Us</a>
     </nav>
   </div>
 </header>
 
 <main>
-  <section class="section section-dark">
+  <section class="section">
     <div class="container">
-      <div class="dark-box">
-        <h2 class="section-title light">Videos & Audios</h2>
-        <p class="coming-soon light">We will be soon uploading.</p>
+      <div class="section-head">
+        <h2 class="h2">Videos & Audios</h2>
+        <p class="sub">Our media library will be published here.</p>
+      </div>
+
+      <div class="panel pad coming" style="max-width:860px;margin:0 auto;">
+        <h3 class="panel-title">Coming Soon</h3>
+        <p>We will be soon uploading.</p>
       </div>
     </div>
   </section>
@@ -40,7 +53,7 @@
 
 <footer class="site-footer">
   <div class="container footer-inner">
-    <p>All rights reserved. Mudawwanah Systems LLC.</p>
+    All rights reserved. Mudawwanah Systems LLC.
   </div>
 </footer>
 
