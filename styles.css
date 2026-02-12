@@ -746,3 +746,343 @@ p,
 
 
 
+.articles-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.article-card {
+  background: #111;
+  padding: 2rem;
+  border-radius: 18px;
+  border: 1px solid rgba(255,255,255,0.08);
+  text-decoration: none;
+  color: #fff;
+  transition: 0.3s ease;
+}
+
+.article-card:hover {
+  border-color: #d4af37;
+  transform: translateY(-5px);
+}
+
+.article-content {
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.8;
+}
+.icon-btn{
+  background: transparent;
+  border: 1px solid rgba(255,255,255,.14);
+  width: 42px;
+  height: 42px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.icon-btn:hover{
+  border-color: rgba(212,175,55,.55);
+  transform: translateY(-1px);
+}
+
+.icon{
+  width: 18px;
+  height: 18px;
+  fill: #fff;
+  opacity: .92;
+}
+.icon-btn:hover .icon{
+  fill: #d4af37;
+}
+.search-results{
+  margin-top: 14px;
+  display: grid;
+  gap: 10px;
+}
+
+.result-item{
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: center;
+  padding: 12px 14px;
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,.10);
+  background: rgba(255,255,255,.04);
+  text-decoration: none;
+  color: #fff;
+}
+
+.result-item:hover{
+  border-color: rgba(212,175,55,.55);
+  transform: translateY(-1px);
+}
+
+.result-left{
+  display: grid;
+  gap: 2px;
+}
+
+.result-title{
+  font-weight: 700;
+}
+
+.result-meta{
+  font-size: .9rem;
+  color: rgba(255,255,255,.65);
+}
+
+.result-type{
+  font-size: .85rem;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(212,175,55,.14);
+  border: 1px solid rgba(212,175,55,.30);
+  color: rgba(255,255,255,.92);
+  white-space: nowrap;
+}/* =========================
+   SEARCH (HOME ONLY)
+   ========================= */
+
+.icon-btn{
+  background: transparent;
+  border: 1px solid rgba(255,255,255,.14);
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: 0.18s ease;
+}
+
+.icon-btn:hover{
+  border-color: rgba(212,175,55,.55);
+  transform: translateY(-1px);
+}
+
+.icon{
+  width: 18px;
+  height: 18px;
+  fill: #fff;
+  opacity: .92;
+}
+
+.icon-btn:hover .icon{
+  fill: #d4af37;
+}
+
+.search-overlay{
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.82);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 92px 18px 24px;  /* space for your header */
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: 0.18s ease;
+  z-index: 999999;
+}
+
+.search-overlay.active{
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.search-modal{
+  width: min(860px, 100%);
+  background: rgba(14,14,14,.98);
+  border: 1px solid rgba(255,255,255,.10);
+  border-radius: 18px;
+  padding: 16px;
+  box-shadow: 0 30px 90px rgba(0,0,0,.70);
+}
+
+.search-top{
+  display: grid;
+  grid-template-columns: 1fr 44px;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.search-top input{
+  width: 100%;
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(212,175,55,.28);
+  color: #fff;
+  border-radius: 14px;
+  padding: 14px 14px;
+  font-size: 1rem;
+  outline: none;
+}
+
+.search-top input::placeholder{
+  color: rgba(255,255,255,.55);
+}
+
+.search-top input:focus{
+  border-color: rgba(212,175,55,.65);
+}
+
+.search-results{
+  display: grid;
+  gap: 10px;
+  max-height: min(55vh, 520px);
+  overflow: auto;
+  padding-right: 2px;
+}
+
+.result-item{
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: center;
+  padding: 12px 14px;
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,.10);
+  background: rgba(255,255,255,.04);
+  text-decoration: none;
+  color: #fff;
+  transition: 0.15s ease;
+}
+
+.result-item:hover{
+  border-color: rgba(212,175,55,.55);
+  transform: translateY(-1px);
+}
+
+.result-left{
+  display: grid;
+  gap: 2px;
+  min-width: 0;
+}
+
+.result-title{
+  font-weight: 750;
+  line-height: 1.15;
+}
+
+.result-meta{
+  font-size: .92rem;
+  color: rgba(255,255,255,.65);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 60ch;
+}
+
+.result-type{
+  font-size: .85rem;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(212,175,55,.14);
+  border: 1px solid rgba(212,175,55,.30);
+  color: rgba(255,255,255,.92);
+  white-space: nowrap;
+}
+
+.search-hint{
+  margin: 12px 4px 0;
+  color: rgba(255,255,255,.58);
+  font-size: .95rem;
+}
+
+@media (max-width: 560px){
+  .search-overlay{ padding-top: 78px; }
+  .result-meta{ max-width: 36ch; }
+}
+/* === FIX SEARCH ICON BUTTON IN HEADER === */
+.icon-btn--search{
+  width: 40px !important;
+  height: 40px !important;
+  border-radius: 999px !important;
+  border: 1px solid rgba(255,255,255,.18) !important;
+  background: rgba(0,0,0,.22) !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  line-height: 0 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  box-shadow: none !important;
+}
+
+.icon-btn--search:hover{
+  border-color: rgba(212,175,55,.6) !important;
+  transform: translateY(-1px);
+}
+
+.icon--search{
+  width: 18px !important;
+  height: 18px !important;
+  display: block !important;
+  fill: #fff !important;
+  opacity: .95 !important;
+}
+
+.icon-btn--search:hover .icon--search{
+  fill: #d4af37 !important;
+}
+
+/* If your header forces weird button styling */
+.site-header button{
+  appearance: none;
+  -webkit-appearance: none;
+}
+/* ===== SEARCH ICON (HARD FIX) ===== */
+.search-btn{
+  width: 42px;
+  height: 42px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,.18);
+  background: rgba(0,0,0,.25);
+  padding: 0;
+  margin: 0;
+  line-height: 0;                 /* stops vertical misalignment */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex: 0 0 auto;                 /* prevents stretching */
+  box-shadow: none;
+  transform: none;
+}
+
+.search-btn:hover{
+  border-color: rgba(212,175,55,.65);
+}
+
+.search-ic{
+  width: 19px;
+  height: 19px;
+  display: block;
+  fill: none !important;          /* IMPORTANT */
+  stroke: #fff;
+  stroke-width: 2.2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  opacity: .95;
+}
+
+.search-btn:hover .search-ic{
+  stroke: #d4af37;
+}
+
+/* If your header/nav is doing weird things */
+.site-header, .nav-wrap, .nav{
+  overflow: visible;
+}
+.result-left{ gap: 6px; }
+

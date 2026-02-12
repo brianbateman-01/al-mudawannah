@@ -1,10 +1,9 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
   <title>Articles • Al Mudawwanah</title>
-  <link rel="stylesheet" href="../styles.css" />
+  <link rel="stylesheet" href="../styles.css">
 </head>
 <body>
 
@@ -15,62 +14,71 @@
       <span class="brand-text">Al Mudawwanah</span>
     </a>
 
-    <button class="nav-toggle" type="button" aria-label="Open menu">
+    <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="siteNav">
       <span></span><span></span><span></span>
     </button>
 
     <nav class="nav" id="siteNav">
-      <a href="../index.html#home" class="nav-link">Home</a>
-      <a href="../index.html#about" class="nav-link">About</a>
-      <a href="./index.html" class="nav-link active">Articles</a>
-      <a href="../courses.html" class="nav-link">Courses</a>
-      <a href="../media.html" class="nav-link">Videos & Audios</a>
-      
-      <a href="../index.html#contact" class="nav-link">Contact Us</a>
+      <a href="../index.html">Home</a>
+      <a class="active" href="./">Articles</a>
+      <a href="../courses.html">Courses</a>
+      <a href="../media.html">Videos & Audios</a>
+      <a href="../index.html#about">About</a>
+      <a href="../index.html#contact">Contact Us</a>
     </nav>
   </div>
 </header>
 
-<main>
-  <section class="page-hero">
-    <div class="container">
-      <h1 class="page-title">Articles</h1>
-      <p class="page-subtitle">Browse categories and collections.</p>
+
+<main class="section">
+  <div class="container">
+    <div class="section-head">
+      <h1 class="h2">Articles</h1>
+      <p class="sub">Browse topics and structured foundations.</p>
     </div>
-  </section>
 
-  <section class="section">
-    <div class="container">
-      <div class="refutations-grid">
-        <!-- Card that routes INTO refutations (child) -->
-        <a class="ref-card" href="./refutations.html">
-          <h3>Refutations</h3>
-          <p>Responses and clarifications grounded in Ahl al-Sunnah wa-l-Jamāʿah.</p>
-          <span class="tag">Open</span>
-        </a>
+    <div class="articles-grid">
+      <a href="foundations/index.html" class="article-card">
+        <h3>Foundations of Islam</h3>
+        <p>Essential introductory topics for understanding Islam clearly and correctly.</p>
+      </a>
+      <a href="theology/" class="article-card">
+  <h3>Islamic Theology & Creed</h3>
+  <p>
+    Foundations of Sunni creed including divine attributes, prophethood,
+    revelation, and theological principles.
+  </p>
+</a>
+<a href="misconceptions/" class="article-card">
+  <h3>Addressing Misconceptions About Islam</h3>
+  <p>
+    Clear explanations on common topics: women, family, jihad, Sharīʿah, extremism claims,
+    science, and human-rights questions.
+  </p>
+</a>
+<a href="worldviews/" class="article-card">
+  <h3>Comparative Religion & Worldviews</h3>
+  <p>
+    A high-level overview of major belief systems and worldviews for clarity and comparison.
+  </p>
+</a>
+<a href="modern-ideologies/" class="article-card">
+  <h3>Modern Ideologies & Contemporary Thought</h3>
+  <p>
+    Analytical overviews of influential modern philosophies and ideological systems.
+  </p>
+</a>
+<a href="ilm-al-kalam/" class="article-card">
+  <h3>ʿIlm al-Kalām</h3>
+  <p>
+    Foundational tools of classical Islamic theology: reasoning, metaphysics, argument analysis,
+    and traditional methods of kalām.
+  </p>
+</a>
 
-        <div class="ref-card" aria-disabled="true">
-          <h3>Coming Soon</h3>
-          <p>More article collections will be added here.</p>
-          <span class="tag">Soon</span>
-        </div>
-
-        <div class="ref-card" aria-disabled="true">
-          <h3>Coming Soon</h3>
-          <p>More article collections will be added here.</p>
-          <span class="tag">Soon</span>
-        </div>
-      </div>
     </div>
-  </section>
+  </div>
 </main>
 
-<footer class="site-footer">
-  <div class="container">
-    <p>All rights reserved. Mudawwanah Systems LLC.</p>
-  </div>
-</footer>
-
-<script src="../script.js"></script>
 </body>
 </html>

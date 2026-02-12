@@ -134,3 +134,231 @@ const $$ = (s, r=document) => Array.from(r.querySelectorAll(s));
     if(note) note.textContent = "Submitting…";
   });
 })();
+(() => {
+  const toggle = document.getElementById("searchToggle");
+  const overlay = document.getElementById("searchOverlay");
+  const closeBtn = document.getElementById("searchClose");
+  const input = document.getElementById("searchInput");
+  const results = document.getElementById("searchResults");
+
+  // Search exists only on Home page
+  if (!toggle || !overlay || !closeBtn || !input || !results) return;
+
+  const index = Array.isArray(window.SEARCH_INDEX) ? window.SEARCH_INDEX : [];
+
+  // Build correct base path for GitHub Pages (repo sites) + custom domains
+  const base = (() => {
+    const isGitHub = window.location.hostname.endsWith("github.io");
+    if (!isGitHub) return ""; // custom domain => relative links are fine
+
+    // /REPO/... => base = /REPO
+    const parts = window.location.pathname.split("/").filter(Boolean);
+    return parts.length ? `/${parts[0]}` : "";
+  })();
+
+  const toHref = (url) => {
+    // If url is already absolute (starts with http), return it
+    if (/^https?:\/\//i.test(url)) return url;
+
+    // Make sure we don’t double-slash
+    const clean = String(url || "").replace(/^\/+/, "");
+    return base ? `${base}/${clean}` : clean;
+  };
+
+  const openSearch = () => {
+    overlay.classList.add("active");
+    overlay.setAttribute("aria-hidden", "false");
+    setTimeout(() => input.focus(), 50);
+    render("");
+  };
+
+  const closeSearch = () => {
+    overlay.classList.remove("active");
+    overlay.setAttribute("aria-hidden", "true");
+    input.value = "";
+    results.innerHTML = "";
+    toggle.focus();
+  };
+
+  const norm = (s) => (s || "").toLowerCase().trim();
+
+  const score = (item, q) => {
+    const hay = `${item.title} ${item.type} ${item.keywords || ""}`.toLowerCase();
+    if (!q) return 0;
+    if (hay.includes(q)) return 10;
+
+    const tokens = q.split(/\s+/).filter(Boolean);
+    let hits = 0;
+    for (const t of tokens) if (hay.includes(t)) hits++;
+    return hits;
+  };
+
+  const itemHTML = (item) => {
+    const href = toHref(item.url);
+    return `
+      <a class="result-item" href="${href}">
+        <span class="result-left">
+          <span class="result-title">${item.title}</span>
+          <span class="result-meta">${item.url}</span>
+        </span>
+        <span class="result-type">${item.type}</span>
+      </a>
+    `;
+  };
+
+  const render = (query) => {
+    const q = norm(query);
+
+    if (!q) {
+      // default: show a few important entries
+      const top = index.slice(0, 10);
+      results.innerHTML = top.map(itemHTML).join("");
+      return;
+    }
+
+    const ranked = index
+      .map((it) => ({ it, s: score(it, q) }))
+      .filter((x) => x.s > 0)
+      .sort((a, b) => b.s - a.s)
+      .slice(0, 14)
+      .map((x) => x.it);
+
+    results.innerHTML = ranked.length
+      ? ranked.map(itemHTML).join("")
+      : `<div class="result-item" style="justify-content:center;">
+           <span class="result-meta">No results found.</span>
+         </div>`;
+  };
+
+  // Events
+  toggle.addEventListener("click", openSearch);
+  closeBtn.addEventListener("click", closeSearch);
+
+  overlay.addEventListener("click", (e) => {
+    if (e.target === overlay) closeSearch();
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && overlay.classList.contains("active")) closeSearch();
+    // Optional: CTRL+K to open
+    if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "k") {
+      e.preventDefault();
+      openSearch();
+    }
+  });
+
+  input.addEventListener("input", (e) => render(e.target.value));
+})();
+(() => {
+  const toggle = document.getElementById("searchToggle");
+  const overlay = document.getElementById("searchOverlay");
+  const closeBtn = document.getElementById("searchClose");
+  const input = document.getElementById("searchInput");
+  const results = document.getElementById("searchResults");
+  const hint = document.getElementById("searchHint");
+
+  if (!toggle || !overlay || !closeBtn || !input || !results) return;
+
+  const index = Array.isArray(window.SEARCH_INDEX) ? window.SEARCH_INDEX : [];
+
+  const computeBase = () => {
+    const isGitHub = window.location.hostname.endsWith("github.io");
+    if (!isGitHub) return "";
+    const parts = window.location.pathname.split("/").filter(Boolean);
+    return parts.length ? `/${parts[0]}` : "";
+  };
+
+  const base = computeBase();
+
+  const toAbs = (rel) => {
+    const clean = String(rel || "").replace(/^\//, "");
+    return `${base}/${clean}`.replace(/\/+/g, "/");
+  };
+
+  const openSearch = () => {
+    overlay.classList.add("active");
+    overlay.setAttribute("aria-hidden", "false");
+    input.value = "";
+    results.innerHTML = "";
+    results.hidden = true;          // ✅ hide results on open
+    if (hint) hint.hidden = false;  // ✅ show tip
+    setTimeout(() => input.focus(), 50);
+  };
+
+  const closeSearch = () => {
+    overlay.classList.remove("active");
+    overlay.setAttribute("aria-hidden", "true");
+    input.value = "";
+    results.innerHTML = "";
+    results.hidden = true;
+    if (hint) hint.hidden = false;
+    toggle.focus();
+  };
+
+  const normalize = (s) => (s || "").toLowerCase().trim();
+
+  const scoreItem = (item, q) => {
+    const hay = `${item.title} ${item.type} ${item.keywords || ""}`.toLowerCase();
+    if (hay.includes(q)) return 10;
+    const tokens = q.split(/\s+/).filter(Boolean);
+    let hits = 0;
+    for (const t of tokens) if (hay.includes(t)) hits++;
+    return hits ? hits : 0;
+  };
+
+const itemToHTML = (item) => {
+  const href = toAbs(item.url);
+
+  return `
+    <a class="result-item" href="${href}">
+      <span class="result-left">
+        <span class="result-title">${item.title}</span>
+      </span>
+      <span class="result-type">${item.type}</span>
+    </a>
+  `;
+};
+
+
+  const renderResults = (query) => {
+    const q = normalize(query);
+
+    // ✅ If empty: hide results, show tip only
+    if (!q) {
+      results.innerHTML = "";
+      results.hidden = true;
+      if (hint) hint.hidden = false;
+      return;
+    }
+
+    // ✅ If typing: show results, hide tip
+    if (hint) hint.hidden = true;
+    results.hidden = false;
+
+    const ranked = index
+      .map((it) => ({ it, s: scoreItem(it, q) }))
+      .filter((x) => x.s > 0)
+      .sort((a, b) => b.s - a.s)
+      .slice(0, 12)
+      .map((x) => x.it);
+
+    results.innerHTML = ranked.length
+      ? ranked.map(itemToHTML).join("")
+      : `<div class="result-item" style="justify-content:center;">
+           <span class="result-meta">No results found.</span>
+         </div>`;
+  };
+
+  toggle.addEventListener("click", openSearch);
+  closeBtn.addEventListener("click", closeSearch);
+
+  overlay.addEventListener("click", (e) => {
+    if (e.target === overlay) closeSearch();
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && overlay.classList.contains("active")) closeSearch();
+  });
+
+  input.addEventListener("input", (e) => renderResults(e.target.value));
+})();
