@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hanafi Ramadan Course • Al Mudawwanah</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
+  <link rel="apple-touch-icon" href="../apple-touch-icon.png">
+  <link rel="manifest" href="../site.webmanifest">
+
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="../styles.css" />
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="brand" href="../index.html">
+      <img src="../logo.png" alt="Al Mudawwanah" class="brand-logo">
+      <span class="brand-text">Al Mudawwanah</span>
+    </a>
+
+    <button class="nav-toggle" type="button" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+
+    <nav class="nav">
+      <a href="../index.html">Home</a>
+      <a href="../articles/">Articles</a>
+      <a class="active" href="./">Courses</a>
+      <a href="../media.html">Videos & Audios</a>
+      <a href="../index.html#about">About</a>
+      <a href="../index.html#contact">Contact Us</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <section class="section">
+    <div class="container">
+
+      <div class="section-head">
+        <h2 class="h2">Hanafi Ramadan Course</h2>
+        <p class="sub">
+          Structured Hanafi fiqh study during Ramadan.
+        </p>
+      </div>
+
+      <div class="course-split">
+
+        <!-- LEFT INFORMATION PANEL -->
+        <article class="panel pad">
+
+          <p class="kicker">COURSE DETAILS</p>
+
+          <div class="detail-grid">
+
+            <div class="detail-row">
+              <div class="dk">Schedule</div>
+              <div class="dv">Every Sunday</div>
+            </div>
+
+            <div class="detail-row">
+              <div class="dk">Time</div>
+              <div class="dv">2:00 PM (UK Time)</div>
+            </div>
+
+            <div class="detail-row">
+              <div class="dk">Track</div>
+              <div class="dv">Hanafi Fiqh (Ramadan Program)</div>
+            </div>
+
+            <div class="detail-row">
+              <div class="dk">Format</div>
+              <div class="dv">Online live session</div>
+            </div>
+
+          </div>
+
+          <div class="note-box">
+            Please ensure you are able to attend consistently before submitting your application.
+            Accepted students will receive further details by email.
+          </div>
+
+        </article>
+
+
+        <!-- RIGHT APPLICATION FORM -->
+        <aside class="panel pad">
+
+          <h3 class="panel-title">Apply for Enrollment</h3>
+
+          <form
+            action="https://formspree.io/f/mlgwrqbz"
+            method="POST"
+          >
+
+            <input type="hidden" name="_subject" value="Hanafi Ramadan Enrollment — Al Mudawwanah" />
+
+            <!-- Name + Age -->
+            <div class="inline-2">
+
+              <label class="field">
+                <span>Full Name</span>
+                <input type="text" name="name" placeholder="Your full name" required>
+              </label>
+
+              <label class="field">
+                <span>Age</span>
+                <input type="number" name="age" placeholder="Your age" min="1" required>
+              </label>
+
+            </div>
+
+            <!-- Country + Course -->
+            <div class="inline-2">
+
+              <label class="field">
+                <span>Country of Residence</span>
+                <input type="text" name="country" placeholder="e.g. America" required>
+              </label>
+
+              <label class="field">
+                <span>Course</span>
+                <input type="text" name="course" value="Hanafi Ramadan Course" readonly>
+              </label>
+
+            </div>
+
+            <!-- Background -->
+            <label class="field">
+              <span>What have you studied?</span>
+              <textarea
+                name="studied"
+                placeholder="Briefly mention your previous studies (fiqh, aqeedah, Arabic, books, teachers, etc.)"
+                required
+              ></textarea>
+            </label>
+
+            <!-- Attendance -->
+            <label class="field">
+              <span>
+                Are you able to attend every Sunday at 2:00 PM (UK time)?
+              </span>
+              <select name="attendance" required>
+                <option value="" disabled selected>Select</option>
+                <option>Yes</option>
+                <option>No</option>
+              </select>
+            </label>
+
+            <button class="btn btn-gold" type="submit">
+              Submit Application
+            </button>
+
+          </form>
+
+        </aside>
+
+      </div>
+
+      <div style="margin-top:40px;">
+        <a class="btn btn-ghost" href="./">← Back to Courses</a>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    All rights reserved. Mudawwanah Systems LLC.
+  </div>
+</footer>
+
+<script src="../script.js"></script>
+</body>
+</html>
