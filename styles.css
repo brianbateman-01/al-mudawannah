@@ -1085,4 +1085,35 @@ p,
   overflow: visible;
 }
 .result-left{ gap: 6px; }
+/* ===== Collapsible Notice ===== */
+
+.collapse-btn{
+  margin-top:10px;
+  margin-bottom:12px;
+  padding:10px 16px;
+  border-radius:999px;
+  border:1px solid rgba(212,175,55,.45);
+  background:rgba(212,175,55,.12);
+  color:#fff;
+  font-weight:600;
+  cursor:pointer;
+  transition:.2s ease;
+}
+
+.collapse-btn:hover{
+  border-color:rgba(212,175,55,.75);
+  background:rgba(212,175,55,.18);
+}
+
+.notice-content{
+  max-height:0;
+  overflow:hidden;
+  transition:max-height .4s ease;
+  opacity:0;
+}
+
+.notice-content.active{
+  max-height:2000px; /* enough to show everything */
+  opacity:1;
+}
 

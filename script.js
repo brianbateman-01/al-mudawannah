@@ -362,3 +362,18 @@ const itemToHTML = (item) => {
 
   input.addEventListener("input", (e) => renderResults(e.target.value));
 })();
+// Collapsible Course Notice
+const noticeToggle = document.getElementById("noticeToggle");
+const noticeContent = document.getElementById("noticeContent");
+
+if (noticeToggle && noticeContent) {
+  noticeToggle.addEventListener("click", () => {
+    noticeContent.classList.toggle("active");
+
+    if (noticeContent.classList.contains("active")) {
+      noticeToggle.textContent = "Hide Notice";
+    } else {
+      noticeToggle.textContent = "Read Notice";
+    }
+  });
+}
