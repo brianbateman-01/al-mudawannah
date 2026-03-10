@@ -11,6 +11,7 @@ window.SEARCH_INDEX = [
   // Main pages
   { title: "Articles", type: "Page", url: "articles/index.html", keywords: "articles library topics" },
   { title: "Courses", type: "Page", url: "courses.html", keywords: "courses classes apply enrollment hanafi ramadan" },
+  { title: "Hanbali Course", type: "Course", url: "courses/hanbali.html", keywords: "hanbali shaykh abu yunus al hanbali daleel at talib dalil al talib fiqh" },
   { title: "Videos & Audios", type: "Page", url: "media.html", keywords: "videos audios media lectures recordings" },
 
   // Articles categories
@@ -37,4 +38,14 @@ window.SEARCH_INDEX = [
   { title: "Hinduism", type: "Worldviews", url: "articles/worldviews/hinduism.html", keywords: "hinduism vedas polytheism" },
   { title: "Buddhism", type: "Worldviews", url: "articles/worldviews/buddhism.html", keywords: "buddhism nirvana" },
   { title: "Other Religions", type: "Worldviews", url: "articles/worldviews/other-religions.html", keywords: "other religions" },
-];
+
+{ title: "Resources", type: "Page", url: "/resources/", keywords: "resources books biographies" },
+{ title: "Biographies of Scholars", type: "Resources", url: "/resources/biographies.html", keywords: "biographies scholars ulama" },
+{ title: "Books", type: "Resources", url: "/resources/books.html", keywords: "books reading references" },
+
+{ title: "Fiqh", type: "Page", url: "/fiqh/", keywords: "fiqh madhhab hanafi shafii maliki hanbali" },
+{ title: "Hanafi", type: "Fiqh", url: "/fiqh/hanafi.html", keywords: "hanafi fiqh" },
+{ title: "Shafi'i", type: "Fiqh", url: "/fiqh/shafii.html", keywords: "shafii shafi'i fiqh" },
+{ title: "Maliki", type: "Fiqh", url: "/fiqh/maliki.html", keywords: "maliki fiqh" },
+{ title: "Hanbali", type: "Fiqh", url: "/fiqh/hanbali.html", keywords: "hanbali fiqh" },
+]
