@@ -4,81 +4,83 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Fiqh • Al Mudawwanah</title>
-  <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
-  <link rel="apple-touch-icon" href="../apple-touch-icon.png">
-  <link rel="manifest" href="../site.webmanifest">
-  <link rel="stylesheet" href="../styles.css" />
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+
+  <link rel="stylesheet" href="/styles.css" />
 </head>
-<body>
+<body data-section="fiqh">
 
-<header class="site-header">
-  <div class="container nav-wrap">
-    <a class="brand" href="../index.html">
-      <img src="../logo.png" alt="Al Mudawwanah" class="brand-logo">
-      <span class="brand-text">Al Mudawwanah</span>
-    </a>
+<!-- SEARCH -->
+<div class="search-overlay" id="searchOverlay" aria-hidden="true">
+  <div class="search-modal" role="dialog" aria-modal="true">
+    <div class="search-top">
+      <input
+        id="searchInput"
+        type="text"
+        placeholder="Search fiqh topics..."
+        autocomplete="off"
+      />
 
-    <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="siteNav">
-      <span></span><span></span><span></span>
-    </button>
+      <button class="icon-btn" id="searchClose">
+        ✕
+      </button>
+    </div>
 
-    <nav class="nav" id="siteNav">
-      <a href="../index.html">Home</a>
-      <a href="../articles/">Articles</a>
-      <a class="active" href="./">Fiqh</a>
-      <a href="../courses/">Courses</a>
-      <a href="../media.html">Videos & Audios</a>
-      <a href="../resources/">Resources</a>
-    </nav>
+    <div class="search-results" id="searchResults" hidden></div>
+    <p class="search-hint">Try: "hanafi", "maliki", "ramadan"</p>
   </div>
-</header>
+</div>
 
-<main>
-  <section class="section">
-    <div class="container">
-      <div class="section-head">
-        <h2 class="h2">Fiqh</h2>
-        <p class="sub">Browse by madhhab.</p>
-      </div>
+<div id="site-header"></div>
 
-      <div class="fiqh-grid">
+<main class="site-main">
 
-  <a class="fiqh-card" href="./hanafi.html">
-    <div class="fiqh-badge">Madhhab</div>
-    <h3>Hanafi</h3>
-    <p>Legal tradition of Imām Abū Ḥanīfah.</p>
-  </a>
+<section class="section">
+<div class="container">
 
-  <a class="fiqh-card" href="./shafii.html">
-    <div class="fiqh-badge">Madhhab</div>
-    <h3>Shafi'i</h3>
-    <p>Legal school of Imām al-Shāfiʿī.</p>
-  </a>
+<div class="section-head">
+<h1 class="h2">Fiqh</h1>
+<p class="sub">Classical Sunni jurisprudence across the four madhhabs.</p>
+</div>
 
-  <a class="fiqh-card" href="./maliki.html">
-    <div class="fiqh-badge">Madhhab</div>
-    <h3>Maliki</h3>
-    <p>Tradition of Imām Mālik of Madinah.</p>
-  </a>
+<div class="articles-grid">
 
-  <a class="fiqh-card" href="./hanbali.html">
-    <div class="fiqh-badge">Madhhab</div>
-    <h3>Hanbali</h3>
-    <p>School of Imām Aḥmad ibn Ḥanbal.</p>
-  </a>
+<a href="/fiqh/hanafi.html" class="article-card">
+<h3>Ḥanafī School</h3>
+<p>Legal methodology, rulings, and structured Hanafi fiqh resources.</p>
+</a>
+
+<a href="/fiqh/maliki.html" class="article-card">
+<h3>Mālikī School</h3>
+<p>Foundations and rulings according to the Maliki madhhab.</p>
+</a>
+
+<a href="/fiqh/shafii.html" class="article-card">
+<h3>Shāfiʿī School</h3>
+<p>Shafi'i jurisprudence and structured fiqh materials.</p>
+</a>
+
+<a href="/fiqh/hanbali.html" class="article-card">
+<h3>Ḥanbalī School</h3>
+<p>Hanbali fiqh and traditional rulings from the madhhab.</p>
+</a>
+
 
 </div>
-    </div>
-  </section>
+
+</div>
+</section>
+
 </main>
 
-<footer class="site-footer">
-  <div class="container footer-inner">
-    All rights reserved. Mudawwanah Systems LLC.
-  </div>
-</footer>
+<div id="site-footer"></div>
 
-<script src="../script.js"></script>
+<script src="/search-index.js"></script>
+<script src="/script.js"></script>
+
 </body>
 </html>

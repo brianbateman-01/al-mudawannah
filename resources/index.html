@@ -5,72 +5,66 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Resources • Al Mudawwanah</title>
 
-  <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
-  <link rel="apple-touch-icon" href="../apple-touch-icon.png">
-  <link rel="manifest" href="../site.webmanifest">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
 
-  <link rel="stylesheet" href="../styles.css" />
+  <link rel="stylesheet" href="/styles.css" />
 </head>
-<body>
+<body data-section="resources">
 
-<header class="site-header">
-  <div class="container nav-wrap">
-    <a class="brand" href="../index.html">
-      <img src="../logo.png" alt="Al Mudawwanah" class="brand-logo">
-      <span class="brand-text">Al Mudawwanah</span>
-    </a>
+<div class="search-overlay" id="searchOverlay" aria-hidden="true">
+  <div class="search-modal" role="dialog" aria-modal="true">
+    <div class="search-top">
+      <input
+        id="searchInput"
+        type="text"
+        placeholder="Search resources..."
+        autocomplete="off"
+      />
 
-    <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="siteNav">
-      <span></span><span></span><span></span>
-    </button>
-
-    <nav class="nav" id="siteNav">
-      <a href="../index.html">Home</a>
-      <a href="../articles/">Articles</a>
-      <a href="../fiqh/">Fiqh</a>
-      <a href="../courses/">Courses</a>
-      <a href="../media.html">Videos & Audios</a>
-      <a class="active" href="./">Resources</a>
-      <a href="../index.html#about">About</a>
-      <a href="../index.html#contact">Contact Us</a>
-    </nav>
-  </div>
-</header>
-
-<main>
-  <section class="section">
-    <div class="container">
-      <div class="section-head">
-        <h2 class="h2">Resources</h2>
-        <p class="sub">Reference materials and beneficial reading.</p>
-      </div>
-
-      <div class="resource-grid">
-
-        <a class="resource-card" href="./biographies/">
-          <div class="resource-badge">Library</div>
-          <h3>Biographies</h3>
-          <p>Historical figures, scholars, righteous people, and notable lives in the Islamic tradition.</p>
-        </a>
-
-        <a class="resource-card" href="./books.html">
-          <div class="resource-badge">Library</div>
-          <h3>Books</h3>
-          <p>Curated reading materials, recommended texts, and beneficial references.</p>
-        </a>
-
-      </div>
+      <button class="icon-btn" id="searchClose">✕</button>
     </div>
-  </section>
+
+    <div class="search-results" id="searchResults" hidden></div>
+    <p class="search-hint">Try: "books", "scholars"</p>
+  </div>
+</div>
+
+<div id="site-header"></div>
+
+<main class="site-main">
+<section class="section">
+<div class="container">
+
+<div class="section-head">
+<h1 class="h2">Resources</h1>
+<p class="sub">Biographies and classical reference material.</p>
+</div>
+
+<div class="articles-grid">
+
+<a href="/resources/biographies/" class="article-card">
+<h3>Biographies</h3>
+<p>Companions, scholars, salaf, leaders and historical figures.</p>
+</a>
+
+<a href="/resources/books.html" class="article-card">
+<h3>Books</h3>
+<p>Recommended classical and contemporary Islamic texts.</p>
+</a>
+
+</div>
+
+</div>
+</section>
 </main>
 
-<footer class="site-footer">
-  <div class="container footer-inner">
-    All rights reserved. Mudawwanah Systems LLC.
-  </div>
-</footer>
+<div id="site-footer"></div>
 
-<script src="../script.js"></script>
+<script src="/search-index.js"></script>
+<script src="/script.js"></script>
+
 </body>
 </html>
