@@ -1,3 +1,4 @@
+
 /* =========================
    HELPERS
 ========================= */
@@ -232,121 +233,147 @@ function initSearch() {
    TEACHERS SLIDER
 ========================= */
 
-function initTeacherSlider() {
-  const card = $("#teacherCard");
-  if (!card) return;
+/* =========================
+   TEACHERS SLIDER
+========================= */
 
-  const nameEl = $("#teacherName");
-  const roleEl = $("#teacherRole");
-  const bioEl = $("#teacherBio");
-  const tagsEl = $("#teacherTags");
-  const initialsEl = $("#teacherInitials");
-  const dotsWrap = $("#teacherDots");
-  const prevBtn = $("#teacherPrev");
-  const nextBtn = $("#teacherNext");
+const teachers = [
+  {
+    name: "Shaykh Minhaji",
+    role: "Teacher",
+    bio: "Bio coming soon.",
+    tags: ["Teacher", "Scholarship"],
+    initials: "SM"
+  },
+  {
+    name: "Shaykh Harun Kanj",
+    role: "Teacher",
+    bio: "Bio coming soon.",
+    tags: ["Teacher", "Fiqh"],
+    initials: "SH"
+  },
+  {
+    name: "Shaykh Muhammad al-Masri",
+    role: "Teacher",
+    bio: "Bio coming soon.",
+    tags: ["Teacher", "Study"],
+    initials: "SM"
+  },
+  {
+    name: "Shaykh Muhammad al-Azhari",
+    role: "Teacher",
+    bio: "Bio coming soon.",
+    tags: ["Teacher", "ʿAqīdah"],
+    initials: "SA"
+  },
+  {
+    name: "Shaykh Shams Tameez",
+    role: "Teacher",
+    bio: "Bio coming soon.",
+    tags: ["Teacher", "Arabic"],
+    initials: "ST"
+  },
+  {
+    name: "Shaykh Abdullah Shuuke",
+    role: "Teacher",
+    bio: "Bio coming soon.",
+    tags: ["Teacher", "Fiqh/ʿAqīdah"],
+    initials: "AS"
+  },
+  {
+    name: "Imam Sudagar",
+    role: "Imam",
+    bio: "Bio coming soon.",
+    tags: ["Imam", "Community"],
+    initials: "IS"
+  }
+];
 
-  if (!nameEl || !roleEl || !bioEl || !tagsEl || !initialsEl || !dotsWrap) return;
+let teacherIndex = 0;
 
-  const teachers = [
-    { name: "Shaykh Minhaji", role: "Teacher", bio: "Bio coming soon.", tags: ["Teacher", "Scholarship"] },
-    { name: "Shaykh Harun Kanj", role: "Teacher", bio: "Bio coming soon.", tags: ["Teacher", "Fiqh"] },
-    { name: "Shaykh Muhammad al-Masri", role: "Teacher", bio: "Bio coming soon.", tags: ["Teacher", "Study"] },
-    { name: "Shaykh Muhammad al-Azhari", role: "Teacher", bio: "Bio coming soon.", tags: ["Teacher", "ʿAqīdah"] },
-    { name: "Shaykh Shams Tameez", role: "Teacher", bio: "Bio coming soon.", tags: ["Teacher", "Arabic"] },
-    { name: "Shaykh Abdullah Shuuke", role: "Teacher", bio: "Bio coming soon.", tags: ["Teacher", "Fiqh/ʿAqīdah"] },
-    { name: "Imam Sudagar", role: "Imam", bio: "Bio coming soon.", tags: ["Imam", "Community"] }
-  ];
+const teacherName = document.getElementById("teacherName");
+const teacherRole = document.getElementById("teacherRole");
+const teacherBio = document.getElementById("teacherBio");
+const teacherTags = document.getElementById("teacherTags");
+const teacherInitials = document.getElementById("teacherInitials");
 
-  let currentIndex = 0;
+const teacherPrev = document.getElementById("teacherPrev");
+const teacherNext = document.getElementById("teacherNext");
+const teacherDots = document.getElementById("teacherDots");
+const teacherCard = document.querySelector(".teacher-card");
 
-  const getInitials = (name) => {
-    const parts = String(name).trim().split(/\s+/);
-    const first = parts[0]?.[0] || "A";
-    const second = parts[1]?.[0] || "M";
-    return `${first}${second}`.toUpperCase();
-  };
+function renderTeacher(index) {
+  if (!teacherName || !teacherRole || !teacherBio || !teacherTags || !teacherInitials || !teacherDots) return;
 
-  const renderDots = () => {
-    dotsWrap.innerHTML = "";
+  const t = teachers[index];
 
-    teachers.forEach((_, index) => {
-      const button = document.createElement("button");
-      button.type = "button";
-      button.className = `dot${index === currentIndex ? " active" : ""}`;
-      button.setAttribute("aria-label", `Go to teacher ${index + 1}`);
-      button.addEventListener("click", () => goTo(index));
-      dotsWrap.appendChild(button);
+  teacherName.textContent = t.name;
+  teacherRole.textContent = t.role;
+  teacherBio.textContent = t.bio;
+  teacherInitials.textContent = t.initials;
+
+  teacherTags.innerHTML = t.tags
+    .map(tag => `<span class="tag">${tag}</span>`)
+    .join("");
+
+  updateDots();
+}
+
+function updateDots() {
+  teacherDots.innerHTML = "";
+
+  teachers.forEach((_, i) => {
+    const dot = document.createElement("span");
+    dot.className = "dot" + (i === teacherIndex ? " active" : "");
+
+    dot.addEventListener("click", () => {
+      teacherIndex = i;
+      renderTeacher(teacherIndex);
     });
-  };
 
-  const renderTeacher = () => {
-    const teacher = teachers[currentIndex];
+    teacherDots.appendChild(dot);
+  });
+}
 
-    nameEl.textContent = teacher.name;
-    roleEl.textContent = teacher.role;
-    bioEl.textContent = teacher.bio;
-    initialsEl.textContent = getInitials(teacher.name);
+if (teacherPrev) {
+  teacherPrev.addEventListener("click", () => {
+    teacherIndex--;
+    if (teacherIndex < 0) teacherIndex = teachers.length - 1;
+    renderTeacher(teacherIndex);
+  });
+}
 
-    tagsEl.innerHTML = "";
-    teacher.tags.forEach((tag) => {
-      const span = document.createElement("span");
-      span.className = "tag";
-      span.textContent = tag;
-      tagsEl.appendChild(span);
-    });
+if (teacherNext) {
+  teacherNext.addEventListener("click", () => {
+    teacherIndex++;
+    if (teacherIndex >= teachers.length) teacherIndex = 0;
+    renderTeacher(teacherIndex);
+  });
+}
 
-    renderDots();
-  };
+/* swipe support mobile */
+let startX = 0;
+let endX = 0;
 
-  const animateSwap = (callback) => {
-    const fadeOut = card.animate(
-      [
-        { opacity: 1, transform: "translateY(0)" },
-        { opacity: 0, transform: "translateY(6px)" }
-      ],
-      { duration: 140, easing: "ease-out" }
-    );
-
-    fadeOut.onfinish = () => {
-      callback();
-
-      card.animate(
-        [
-          { opacity: 0, transform: "translateY(6px)" },
-          { opacity: 1, transform: "translateY(0)" }
-        ],
-        { duration: 160, easing: "ease-out" }
-      );
-    };
-  };
-
-  const goTo = (index) => {
-    currentIndex = index;
-    animateSwap(renderTeacher);
-  };
-
-  const prev = () => {
-    currentIndex = (currentIndex - 1 + teachers.length) % teachers.length;
-    animateSwap(renderTeacher);
-  };
-
-  const next = () => {
-    currentIndex = (currentIndex + 1) % teachers.length;
-    animateSwap(renderTeacher);
-  };
-
-  prevBtn?.addEventListener("click", prev);
-  nextBtn?.addEventListener("click", next);
-
-  document.addEventListener("keydown", (event) => {
-    if ($("#teacherCard")) {
-      if (event.key === "ArrowLeft") prev();
-      if (event.key === "ArrowRight") next();
-    }
+if (teacherCard) {
+  teacherCard.addEventListener("touchstart", (e) => {
+    startX = e.touches[0].clientX;
   });
 
-  renderTeacher();
+  teacherCard.addEventListener("touchend", (e) => {
+    endX = e.changedTouches[0].clientX;
+
+    if (startX - endX > 50 && teacherNext) {
+      teacherNext.click();
+    }
+
+    if (endX - startX > 50 && teacherPrev) {
+      teacherPrev.click();
+    }
+  });
 }
+
+renderTeacher(teacherIndex);
 
 /* =========================
    COLLAPSIBLE NOTICE
@@ -360,9 +387,12 @@ function initNoticeToggle() {
 
   noticeToggle.addEventListener("click", () => {
     noticeContent.classList.toggle("active");
-    noticeToggle.textContent = noticeContent.classList.contains("active")
-      ? "Hide Notice"
-      : "Read Notice";
+
+    if (noticeContent.classList.contains("active")) {
+      noticeToggle.textContent = "Hide Notice";
+    } else {
+      noticeToggle.textContent = "Read Notice";
+    }
   });
 }
 
