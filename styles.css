@@ -576,377 +576,137 @@ button,input{font:inherit}
 .teacher-dot.active{background:#b88b43;transform:scale(1.25)}
 .teacher-count{font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:#9f875f;margin-top:12px}
 @media(max-width:700px){.brand-logo{width:40px;height:40px;flex-basis:40px}.teacher-carousel{grid-template-columns:40px minmax(0,1fr) 40px;gap:8px}.teacher-nav{width:38px;height:38px}.teacher-feature{padding:22px}.teacher-monogram{width:110px}}
+
+
 /* =========================================================
-   AL MUDAWWANAH — TEACHERS CAROUSEL
+   V12 CUSTOM UPDATES — requested content changes only
 ========================================================= */
 
-.teachers-section {
-  background:
-    linear-gradient(
-      rgba(245, 237, 221, 0.97),
-      rgba(245, 237, 221, 0.97)
-    );
-  color: #18140f;
-  padding: 90px 0;
-  border-top: 1px solid rgba(126, 92, 43, 0.22);
-  border-bottom: 1px solid rgba(126, 92, 43, 0.22);
-  overflow: hidden;
+/* Keep the supplied circular seal centered with no white square/corners. */
+.brand-logo {
+  object-fit: cover !important;
+  object-position: center center !important;
+  border-radius: 50% !important;
+  background: transparent !important;
+}
+.brand {
+  align-items: center;
+}
+.brand img.brand-logo {
+  flex: 0 0 auto;
 }
 
-.teachers-container {
-  width: min(1280px, 92%);
+/* Articles coming-soon panels */
+.articles-coming-home .section-head {
+  margin-bottom: 34px;
+}
+.coming-soon-panel {
+  display: grid;
+  grid-template-columns: 110px minmax(0, 1fr);
+  gap: 34px;
+  align-items: center;
+  padding: 36px;
+  border: 1px solid var(--line);
+  background: rgba(255,255,255,.28);
+}
+.coming-soon-mark {
+  width: 82px;
+  height: 82px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--gold);
+  border-radius: 50%;
+  background: var(--ink);
+  color: var(--gold);
+  font-size: 1.45rem;
+}
+.coming-soon-panel h3 {
+  margin: 7px 0 10px;
+  font-family: var(--serif);
+  font-size: clamp(1.6rem, 3vw, 2.25rem);
+  font-weight: 500;
+}
+.coming-soon-panel p {
+  max-width: 760px;
+  margin: 0 0 20px;
+  color: var(--muted);
+  line-height: 1.75;
+}
+
+.articles-coming-page {
+  min-height: 540px;
+  display: flex;
+  align-items: center;
+}
+.coming-soon-page {
+  max-width: 780px;
   margin: 0 auto;
+  text-align: center;
+  padding: 44px 0 64px;
 }
-
-
-/* HEADING */
-
-.teachers-heading {
-  max-width: 700px;
-  margin-bottom: 50px;
+.coming-soon-page .coming-soon-mark.large {
+  margin: 24px auto 20px;
 }
-
-.teachers-heading .section-kicker {
-  display: block;
-  color: #9b742e;
-  background: transparent !important;
-  font-size: 0.72rem;
-  font-weight: 600;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  margin-bottom: 14px;
+.coming-soon-page h2 {
+  margin: 0 0 18px;
+  font-family: var(--serif);
+  font-size: clamp(2.2rem, 5vw, 4rem);
+  font-weight: 500;
 }
-
-.teachers-heading h2 {
-  margin: 0 0 15px;
-  color: #17130e;
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(2.2rem, 4vw, 3.7rem);
-  font-weight: 400;
-  line-height: 1.05;
+.coming-soon-page > p {
+  color: var(--muted);
+  line-height: 1.9;
 }
-
-.teachers-heading p {
-  max-width: 620px;
-  color: #706353;
-  font-size: 1rem;
-  line-height: 1.8;
-}
-
-
-/* CAROUSEL */
-
-.teachers-carousel {
-  position: relative;
+.folio-divider {
+  max-width: 330px;
+  margin: 36px auto 22px;
   display: flex;
   align-items: center;
-  gap: 18px;
+  gap: 14px;
 }
-
-.teachers-viewport {
-  width: 100%;
-  overflow: hidden;
-}
-
-.teachers-track {
-  display: flex;
-  gap: 20px;
-  transition: transform 0.55s cubic-bezier(.22,.61,.36,1);
-}
-
-
-/* TEACHER CARD */
-
-.teacher-card {
-  position: relative;
-  flex: 0 0 calc((100% - 40px) / 3);
-  min-height: 390px;
-
-  padding: 38px 32px 34px;
-
-  border: 1px solid rgba(137, 102, 51, 0.3);
-
-  background:
-    linear-gradient(
-      145deg,
-      rgba(255,255,255,0.35),
-      rgba(225,209,181,0.2)
-    );
-
-  display: flex;
-  flex-direction: column;
-
-  transition:
-    transform 0.3s ease,
-    border-color 0.3s ease,
-    box-shadow 0.3s ease;
-}
-
-.teacher-card:hover {
-  transform: translateY(-5px);
-  border-color: #a47b34;
-  box-shadow: 0 15px 40px rgba(65, 45, 20, 0.08);
-}
-
-
-/* NUMBER */
-
-.teacher-number {
-  position: absolute;
-  top: 20px;
-  right: 22px;
-
-  color: rgba(118, 85, 38, 0.42);
-
-  font-family: Georgia, serif;
-  font-size: 0.8rem;
-  letter-spacing: 0.15em;
-}
-
-
-/* ARABIC MEDALLION */
-
-.teacher-icon {
-  width: 74px;
-  height: 74px;
-
-  border: 1px solid #a37a34;
-  border-radius: 50%;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  margin-bottom: 36px;
-
-  background: #17130e;
-  color: #c89b45;
-
-  box-shadow:
-    inset 0 0 0 5px #17130e,
-    inset 0 0 0 6px rgba(196, 148, 67, 0.45);
-}
-
-.teacher-icon span {
-  font-family: Georgia, serif;
-  font-size: 1.7rem;
-}
-
-
-/* TEXT */
-
-.teacher-info {
-  margin-top: auto;
-}
-
-.teacher-label {
-  display: block;
-
-  background: transparent !important;
-  color: #9b742e;
-
-  font-size: 0.67rem;
-  font-weight: 600;
-
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-
-  margin-bottom: 10px;
-}
-
-.teacher-info h3 {
-  color: #17130e;
-  margin: 0;
-
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 1.65rem;
-  font-weight: 400;
-
-  line-height: 1.25;
-}
-
-.teacher-divider {
-  width: 35px;
+.folio-divider span {
   height: 1px;
-
-  background: #a47b34;
-
-  margin: 20px 0;
+  background: var(--line);
+  flex: 1;
+}
+.folio-divider b {
+  color: var(--gold);
+  font-weight: 400;
+}
+.coming-note {
+  font-family: var(--serif);
+  font-style: italic;
 }
 
-.teacher-info p {
-  margin: 0;
-
-  color: #766958;
-
-  font-size: 0.92rem;
-  line-height: 1.7;
+/* Media page: parchment hero must use dark readable text. */
+.media-hero,
+.media-hero h1,
+.media-hero h2,
+.media-hero h3,
+.media-hero strong {
+  color: var(--ink) !important;
+}
+.media-hero p {
+  color: var(--muted) !important;
+}
+.media-hero .eyebrow {
+  color: var(--gold-dark) !important;
+  background: transparent !important;
 }
 
-
-/* ARROWS */
-
-.teacher-arrow {
-  flex: 0 0 48px;
-
-  width: 48px;
-  height: 48px;
-
-  border: 1px solid rgba(151, 111, 48, 0.5);
-  border-radius: 50%;
-
-  background: transparent;
-  color: #8e672b;
-
-  font-size: 1.3rem;
-
-  cursor: pointer;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  transition:
-    background 0.25s ease,
-    color 0.25s ease,
-    border-color 0.25s ease;
+/* Remove the unwanted black label strips in light/parchment sections. */
+.paper .eyebrow,
+.page-hero .eyebrow,
+.media-hero .eyebrow,
+.old-site-offer .eyebrow,
+.articles-coming-home .eyebrow {
+  background: transparent !important;
+  box-shadow: none !important;
 }
-
-.teacher-arrow:hover {
-  background: #17130e;
-  border-color: #17130e;
-  color: #c99b48;
-}
-
-
-/* DOTS */
-
-.teacher-dots {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  gap: 9px;
-
-  margin-top: 30px;
-}
-
-.teacher-dot {
-  width: 7px;
-  height: 7px;
-
-  padding: 0;
-
-  border: none;
-  border-radius: 50%;
-
-  background: rgba(116, 84, 38, 0.3);
-
-  cursor: pointer;
-
-  transition:
-    width 0.25s ease,
-    border-radius 0.25s ease,
-    background 0.25s ease;
-}
-
-.teacher-dot.active {
-  width: 28px;
-  border-radius: 10px;
-
-  background: #9e742f;
-}
-
-
-/* FOOTER LINK */
-
-.teachers-footer {
-  display: flex;
-  justify-content: center;
-
-  margin-top: 36px;
-}
-
-.teachers-link {
-  color: #6f5228;
-
-  text-decoration: none;
-
-  font-size: 0.78rem;
-  font-weight: 600;
-
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-
-  display: inline-flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.teachers-link span {
-  transition: transform 0.25s ease;
-}
-
-.teachers-link:hover span {
-  transform: translateX(5px);
-}
-
-
-/* TABLET */
-
-@media (max-width: 1000px) {
-
-  .teacher-card {
-    flex: 0 0 calc((100% - 20px) / 2);
-  }
-
-}
-
-
-/* MOBILE */
 
 @media (max-width: 700px) {
-
-  .teachers-section {
-    padding: 65px 0;
+  .coming-soon-panel {
+    grid-template-columns: 1fr;
+    padding: 28px 24px;
   }
-
-  .teachers-container {
-    width: min(92%, 600px);
-  }
-
-  .teachers-heading {
-    margin-bottom: 35px;
-  }
-
-  .teachers-carousel {
-    gap: 8px;
-  }
-
-  .teacher-card {
-    flex: 0 0 100%;
-    min-height: 350px;
-
-    padding: 32px 26px;
-  }
-
-  .teacher-arrow {
-    position: absolute;
-
-    z-index: 5;
-
-    width: 42px;
-    height: 42px;
-
-    background: #f5eddd;
-  }
-
-  .teacher-arrow-left {
-    left: -10px;
-  }
-
-  .teacher-arrow-right {
-    right: -10px;
-  }
-
 }
